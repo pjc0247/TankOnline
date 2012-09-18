@@ -57,7 +57,7 @@ typedef struct
 } HANDLER;
 
 
-DWORD WINAPI CompletionThread(LPVOID CompletionPortIO);
+unsigned int __stdcall CompletionThread(void* CompletionPortIO);
 void RegistHandler(int code,void (*cb)(int,char *));
 void ParsePacket(int w,char *msg,int msgLength);
 void Send(int w,int p,char *msg);
@@ -368,8 +368,8 @@ int main(int argc, char** argv)
         hCompletionPort = CreateIoCompletionPort(INVALID_HANDLE_VALUE, NULL, 0, (dwProcessor * 2));
  
         for(i=0; i < (dwProcessor * 2); i++) {
-               CreateThread(NULL, 0, CompletionThread, (LPVOID)hCompletionPort, 0, NULL);
-               // _beginthreadex(NULL, 0, CompletionThread, (LPVOID)hCompletionPort, 0, NULL);
+               //CreateThread(NULL, 0, CompletionThread, (LPVOID)hCompletionPort, 0, NULL);
+                _beginthreadex(NULL, 0, CompletionThread, (LPVOID)hCompletionPort, 0, NULL);
         }
  
         hServSock = WSASocket(AF_INET, SOCK_STREAM, 0, NULL, 0, WSA_FLAG_OVERLAPPED);
@@ -448,7 +448,7 @@ int main(int argc, char** argv)
         return 0;
 }
  
-DWORD WINAPI CompletionThread(LPVOID pComPort)
+unsigned int __stdcall CompletionThread(void* pComPort)
 {
         HANDLE hCompletionPort =(HANDLE)pComPort;
         DWORD BytesTransferred;
