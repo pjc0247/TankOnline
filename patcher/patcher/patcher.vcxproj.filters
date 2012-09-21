@@ -16,6 +16,9 @@
     <Filter Include="소스 파일\graphic">
       <UniqueIdentifier>{1c3f6a1d-182a-4b80-8e96-ea9a7b627d86}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\update">
+      <UniqueIdentifier>{d9e3ea64-f627-4be9-9ce5-9359d175a286}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="ReadMe.txt" />
@@ -39,6 +42,15 @@
     <ClInclude Include="sprite.h">
       <Filter>소스 파일\graphic</Filter>
     </ClInclude>
+    <ClInclude Include="..\..\module_Update\ftp.h">
+      <Filter>소스 파일\update</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\module_Update\ibindcallback.h">
+      <Filter>소스 파일\update</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\module_Update\updater.h">
+      <Filter>소스 파일\update</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
@@ -52,6 +64,15 @@
     </ClCompile>
     <ClCompile Include="image.cpp">
       <Filter>소스 파일\graphic</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\module_Update\ftp.cpp">
+      <Filter>소스 파일\update</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\module_Update\ibindcallback.cpp">
+      <Filter>소스 파일\update</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\module_Update\updater.cpp">
+      <Filter>소스 파일\update</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

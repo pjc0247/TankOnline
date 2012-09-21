@@ -82,6 +82,9 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="..\..\module_Update\ftp.h" />
+    <ClInclude Include="..\..\module_Update\ibindcallback.h" />
+    <ClInclude Include="..\..\module_Update\updater.h" />
     <ClInclude Include="drawtext.h" />
     <ClInclude Include="han2unicode.h" />
     <ClInclude Include="image.h" />
@@ -90,6 +93,15 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\module_Update\ftp.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\module_Update\ibindcallback.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
+    <ClCompile Include="..\..\module_Update\updater.cpp">
+      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">NotUsing</PrecompiledHeader>
+    </ClCompile>
     <ClCompile Include="drawtext.cpp" />
     <ClCompile Include="image.cpp" />
     <ClCompile Include="patcher.cpp" />
