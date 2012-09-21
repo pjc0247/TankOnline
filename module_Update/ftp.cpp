@@ -11,7 +11,7 @@ void FTP::SetParam(LPCTSTR Server,LPCTSTR User,LPCTSTR Pass){
 	wsprintf(p_Pass,Pass);
 }
 BOOL FTP::Connect(){
-	hInternet=InternetOpen(PROG_NAME, INTERNET_OPEN_TYPE_PRECONFIG,
+	hInternet=InternetOpenA(PROG_NAME, INTERNET_OPEN_TYPE_PRECONFIG,
 		NULL, NULL, 0);
 	if (hInternet == NULL) {
 		return FALSE;

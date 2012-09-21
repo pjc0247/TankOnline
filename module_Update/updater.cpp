@@ -17,11 +17,11 @@ map<string,bool> downloaded;
 
 void UPDATER::SetParam(LPCTSTR url,int Ver){
 	Version = Ver;
-	wsprintf(URL,T(url));
+	wsprintf(URL,(url));
 }
 
 BOOL UPDATER::Check(){
-	URLDownloadToFile(NULL,URL,"tmp.txt",NULL,NULL);
+	URLDownloadToFile(NULL,URL,T("tmp.txt"),NULL,NULL);
 
 	FILE *in = fopen("tmp.txt", "r");
 	if(in == NULL) return false;
@@ -76,7 +76,7 @@ BOOL UPDATER::Update(BOOL (*CallBack)(int now, int total, int index)){
 	
 	for(int i = 0;i<d_list_max;i++){
 		icb.SetIndex(i);
-		URLDownloadToFile(NULL,d_list[i].URL,d_list[i].Local,0,&icb);
+		URLDownloadToFileA(NULL,d_list[i].URL,d_list[i].Local,0,&icb);
 	}
 
 	return true;
