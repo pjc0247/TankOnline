@@ -5,9 +5,15 @@
 
 #include "ibindcallback.h"
 
+#include <string>
+#include <map>
+using namespace std;
+
 #pragma comment (lib,"urlmon.lib")
 
 #define T(str) TEXT(str)
+
+map<string,bool> downloaded;
 
 void UPDATER::SetParam(LPCTSTR url,int Ver){
 	Version = Ver;
@@ -30,6 +36,22 @@ BOOL UPDATER::Check(){
 		d_list[p].Version = v;
 		fgets(d_list[p].URL,100,in);
 		fgets(d_list[p].Local,100,in);
+
+		map<string,bool>::iterator itor;
+		bool find = false;
+
+		for(itor=downloaded.begin();itor!=downloaded.end();++itor){
+			if(itor->first == string(d_list[p].URL)){
+				find = true;
+				break;
+			}
+		}
+		if(find == true){
+			p--;
+			continue;
+		}
+		downloaded[string(d_list[p].URL)] = true;
+
 		p++;
 	}
 
