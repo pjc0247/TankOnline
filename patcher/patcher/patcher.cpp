@@ -3,6 +3,8 @@
 
 #include "stdafx.h"
 
+#include <Windows.h>
+
 #include <SDL.h>
 #include <sdl_gdiplus.h>
 #include <sdl_ttf.h>
@@ -99,11 +101,22 @@ void Quit(){
 
 int _tmain(int argc, _TCHAR* argv[])
 {
+	HANDLE hMutex;  
+	hMutex = CreateMutex(NULL,FALSE,L"ToPatcher");  
+	if(GetLastError() == ERROR_ALREADY_EXISTS){  
+		MessageBox(NULL,
+				L"프로그램이 이미 실행중입니다.",
+				L"Error",
+				MB_OK | MB_ICONERROR | MB_SETFOREGROUND);
+		return 0;  
+	}  
+
 	SetupRC();
 
 	ScenePatch();
 
 	Quit();
+	CloseHandle(hMutex);
 	return 0;
 }
 
