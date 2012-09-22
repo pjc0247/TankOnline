@@ -61,7 +61,7 @@ STDMETHODIMP CBindTransferStatus::OnObjectAvailable(REFIID riid, IUnknown* punk)
 }
 
 
-STDMETHODIMP CBindTransferStatus::OnProgress(ULONG ulProgess, ULONG ulProgessMax, ULONG ulStatusCode, LPCWSTR szStatusCode)
+STDMETHODIMP CBindTransferStatus::OnProgress(ULONG ulProgress, ULONG ulProgressMax, ULONG ulStatusCode, LPCWSTR szStatusCode)
 {
        return pCallBack(ulProgress,ulProgressMax,idx);
 }
@@ -78,6 +78,9 @@ STDMETHODIMP CBindTransferStatus::OnStartBinding(DWORD dwReserved, IBinding* pbi
 STDMETHODIMP CBindTransferStatus::OnStopBinding(HRESULT hrStatus, LPCWSTR szStatusText)
 {
         return E_NOTIMPL;
+}
+STDMETHODIMP CBindTransferStatus::GetBindInfo(DWORD *pgrfBINDF, BINDINFO *pbindinfo){
+	return E_NOTIMPL;
 }
 
 void CBindTransferStatus::SetIndex(int i){

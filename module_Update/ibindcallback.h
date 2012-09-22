@@ -27,7 +27,7 @@ public:
         STDMETHOD(OnDataAvailable)(DWORD grfBSCF, DWORD dwSize, FORMATETC *pfmtetc, STGMEDIUM *pstgmed);
         STDMETHOD(OnLowResource)(DWORD dwReserved);
         STDMETHOD(OnObjectAvailable)(REFIID riid, IUnknown* punk);
-        STDMETHOD(OnProgress)(ULONG ulProgess, ULONG ulProgessMax, ULONG ulStatusCode, LPCWSTR szStatusCode);
+        STDMETHOD(OnProgress)(ULONG ulProgress, ULONG ulProgressMax, ULONG ulStatusCode, LPCWSTR szStatusCode);
         STDMETHOD(OnStartBinding)(DWORD dwReserved, IBinding *pbinding);
         STDMETHOD(OnStopBinding)(HRESULT hrStatus, LPCWSTR szStatusText);
 

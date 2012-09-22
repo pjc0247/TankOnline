@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "ftp.h"
 
 #pragma comment (lib,"wininet.lib")
